@@ -1,5 +1,3 @@
-name : armstrong 
-
 fn main() {
   let num : i32 = 9;
   armstrong(num);
