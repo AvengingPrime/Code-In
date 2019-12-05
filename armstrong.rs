@@ -1,10 +1,16 @@
+use std::io;
+
 fn main() {
-  let num : i32 = 9;
-  armstrong(num);
-  num = 153;
-  armstrong(num);
-  num = 154;
-  armstrong(num);
+ let mut num : i32 = 1;
+ while num != 0 {
+  num = input();
+ if num == 0 {
+  break;
+ }
+ armstrong(num);
+ }
+ 
+ println!("Thank you!");
 }
 
 fn armstrong(number : i32) {
@@ -29,4 +35,18 @@ fn armstrong(number : i32) {
   else {
     println!("Not an Armstrong Number");
   }
+}
+  
+  fn input() -> i32 {
+   println!("Enter in a number to check or 0 to quit");
+   let mut input_text = String::new();
+    io::stdin()
+        .read_line(&mut input_text)
+        .expect("failed to read from stdin");
+
+    let trimmed = input_text.trim();
+    match trimmed.parse::<i32>() {
+        Ok(i) => i,
+        Err(..) => 0,
+    }
 }
